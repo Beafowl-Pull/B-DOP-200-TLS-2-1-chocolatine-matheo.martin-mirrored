@@ -1,0 +1,11 @@
+name: Do Date When Push
+on: [push]
+jobs:
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: echo "💡 The ${{ env.GITHUB_REF_NAME }} repository has been cloned to the runner."
+      - run: du -skh --exclude=".git"

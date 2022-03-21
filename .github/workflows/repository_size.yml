@@ -1,4 +1,4 @@
-name: Do Date When Push
+name: Print the branch and fetch
 on: [push]
 jobs:
   Explore-Github-Actions:

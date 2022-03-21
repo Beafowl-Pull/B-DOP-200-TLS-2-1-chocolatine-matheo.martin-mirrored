@@ -12,4 +12,4 @@ jobs:
           target_repo_url:
             git@github.com:EpitechPromo2026/B-DOP-200-TLS-2-1-chocolatine-matheo.martin.git
           ssh_private_key:
-            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDB+LKnWw6jSx9kAQHRskc7zK09kpH9j1tBPEFi6DLuKnsqU+8TC2ZhHhEZrrGOAHZCoCyLqnMOoutsk6kmXl3rXG5tN46f9WgaoTk7r7Xk1pTI6V4UmG0c1MCVCHlk9Q3seh8bb03e/GoYwmafE635/ewrdslt2KoMpuNpeu8o1ixQBiKCzGO28g6iSU4XIqSoCWX3bk7I02J5TGZK4OnhGA6CKp85nc5PoTwHW2MuYJiTJ2UnTJvIszrZcGZpRp8n/arw9MNi3JZ7tLBf7hGZE4GDi7R54xrS6OsrizVSSjkn1TpjTkhbVlh93w/Xig4beCkz1zBYh2bps7yxYWg6VcnQ9Py+UnJcc29L1vaXY/Repoku6rqiOm4qxKqrhLgN/GZ7LjCvkAXaPjmaoAYeiACsZwV9onk3HVae/R76R2RMgiN/rV7g1aBtHFLbIFN5/9xT8zXWpYmzgg6/QmIQb3TbGBNp3g29Mmg0QvC5xiC+gb6QvoexR+pD32Q6sQeC24ALTvnbKZ6dv/N0IHdV2RF2Ij439z8oI0JWpbE3/oCC36CifLccI2VZJ4t1elev3tw9MakA3grF4b3LCP0lWY2XSq31pYqQEwnpdy22Vy0QFpOGXDBU4aFc0jy6hQCgsvFar11cuxAExxBRO3/ebIEavIKp5TantfKK6tOVPw== matheo.martin@epitech.eu
+            ${{ secret.Key }}

@@ -11,17 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: find unwanted files
+        uses: docker://epitechcontent/epitest-docker:latest
       if: find . -type f -name "*~" -o -name "#*#" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov" -o -name "*pain_au_chocolat.*" -o -name "*-" -o -name "tmp/*"
       ABORT: "Found unwanted files"
   job3:
     runs-on: ubuntu-latest
     steps:
       - name: check_program_compilation
+        uses: docker://epitechcontent/epitest-docker:latest
       - run: make
       - run: make clean
-      - name: run_tests
-          - run: make tests_run
   job4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run_tests
+        uses: docker://epitechcontent/epitest-docker:latest
+      - run: make tests_run
+  job5:
     runs-on: ubuntu-latest
     steps:
       - uses: pixta-dev/repository-mirroring-action@v1

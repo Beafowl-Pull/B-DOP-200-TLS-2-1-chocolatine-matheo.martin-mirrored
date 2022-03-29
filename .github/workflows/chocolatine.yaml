@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [job1]
     steps:
-      - name: find_ unwanted_files
+      - name: find_unwanted_files
       - uses: docker://epitechcontent/epitest-docker:latest
-        if: find . -type f -name "*~" -o -name "#*#" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov" -o -name "*pain_au_chocolat.*" -o -name "*-" -o -name "tmp/*"
-        ABORT: "Found unwanted files"
+      - if: find . -type f -name "*~" -o -name "#*#" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov" -o -name "*pain_au_chocolat.*" -o -name "*-" -o -name "tmp/*"
+      ABORT: "Found unwanted files"
   job3:
     runs-on: ubuntu-latest
     needs: [job2]

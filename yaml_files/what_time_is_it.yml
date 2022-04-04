@@ -1,7 +1,0 @@
-name: Do Date When Push
-on: [push]
-jobs:
-  Explore-Github-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: date

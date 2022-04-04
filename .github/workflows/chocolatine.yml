@@ -51,7 +51,7 @@ jobs:
     container:
       image: epitechcontent/epitest-docker:latest
     steps:
-      - uses: actions/checkout
+      - uses: actions/checkout@v3
       - id: run_tests
         run: make tests_run
         timeout-minutes: 2

@@ -39,7 +39,7 @@ jobs:
       - run: |
           OIFS=$IFS
           IFS=','
-          for x in $EXECUTABLE
+          for x in $EXECUTABLES
             do
               ./$x
             done

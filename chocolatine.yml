@@ -7,7 +7,7 @@ on:
     branches-ignore:
       - "ga-ignore"
 env:
-  MIRROR_URL: "git@github.com:EpitechPromo2026/B-DOP-200-TLS-2-1-chocolatine-matheo.martin.git"
+  MIRROR_URL: ""
   EXECUTABLES: ""
 jobs:
   check_repo:
@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - id: check_repo
+      - id: check_repository_cleanliness 
         run: |
-          BAD_FILES=$(find . -type f -not -path "./.git/*" -wholename "*tmp/*" -or -iname "*pain_au_chocolat*" -or -name "*~" -or -name "*.o" -or -name "*.a" -or -name "*.so" -or -name "*.gcno" -or -name "*.gdca" -or -name "*.gcov")
+          BAD_FILES=$(find . -type f -not -path "./.git/*" -wholename "*tmp/*" -or -iname "*pain_au_chocolat*" -or -name "*~" -or -name "*.o" -or -name "*.a" -or -name "*.so" -or -name "*.gcno" -or -name "*.gdca" -or -name "*.gcov" -or -name "#*")
           for FILES in $BAD_FILES; do
             echo "::error file=${FILE#./}, title=Unwanted file detected::${FILE#./}"
           done
@@ -32,7 +32,7 @@ jobs:
       image: epitechcontent/epitest-docker:latest
     steps:
       - uses: actions/checkout@v3
-      - id: check_if_compil
+      - id:  check_program_compilation
         run: make
         timeout-minutes: 2
       - run: make clean
@@ -45,7 +45,7 @@ jobs:
             done
           IFS=$OIFS
   run_tests:
-    needs: check_if_compil
+    needs: [check_if_compil]
     name: "Run the tests"
     runs-on: ubuntu-latest
     container:
@@ -62,8 +62,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: pixta-dev/repository-mirroring-action@v1
+      - id: push_to_mirror
         with:
           target_repo_url:
             ${{ env.MIRROR_URL }}
           ssh_private_key:
-            ${{ secrets.Key }}
+            ${{ GIT_SSH_PRIVATE_KEY }}
